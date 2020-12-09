@@ -28,11 +28,11 @@ hr_width, hr_height = 640, 480 # high res (4x)
 # input and output data
 lr_shape = (lr_height, lr_width, channels)
 hr_shape = (hr_height, hr_width, channels)
-data_loader = dataLoaderUSR(DATA_PATH="/mnt/data1/ImageSR/USR-248/", SCALE=4)
+data_loader = dataLoaderUSR(DATA_PATH="./USR-248/", SCALE=4)
 
 # training parameters
-num_epochs = 20
-batch_size = 2
+num_epochs = 100
+batch_size = 8
 sample_interval = 500 # per step
 ckpt_interval = 4 # per epoch
 steps_per_epoch = (data_loader.num_train//batch_size)
@@ -56,7 +56,7 @@ else:
     gan_model = SRDRM_model(lr_shape, hr_shape, SCALE=4)
 
 # checkpoint directory
-checkpoint_dir = os.path.join("checkpoints/", dataset_name, model_name)
+checkpoint_dir = os.path.join("/content/drive/MyDrive/SRDRM/checkpoints/", dataset_name, model_name)
 if not os.path.exists(checkpoint_dir): os.makedirs(checkpoint_dir)
 ## sample directory
 samples_dir = os.path.join("images/", dataset_name, model_name)
