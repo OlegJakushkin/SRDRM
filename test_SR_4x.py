@@ -1,4 +1,3 @@
-#!/usr/bin/env python
 """
 # > Script for evaluating 4x SISR models 
 #    - Paper: https://arxiv.org/pdf/1909.09437.pdf
@@ -25,7 +24,7 @@ print ("{0} test images are loaded".format(len(test_paths)))
 #model_name = "srdrm"
 model_name = "srdrm-gan"
 ckpt_name =  "model_68_"
-checkpoint_dir  = os.path.join("/content/drive/MyDrive/SRDRM/checkpoints/", model_name) 
+checkpoint_dir  = os.path.join("/content/drive/MyDrive/SRDRM/checkpoints/USR_4x/", model_name) 
 model_h5 = os.path.join(checkpoint_dir, ckpt_name+".h5")  
 model_json = os.path.join(checkpoint_dir, ckpt_name + ".json")
 # sanity
@@ -71,4 +70,3 @@ else:
     Ttime, Mtime = np.sum(times[1:]), np.mean(times[1:]) 
     print ("Time taken: {0} sec at {1} fps".format(Ttime, 1./Mtime))
     print("\nSaved generated images in in {0}\n".format(samples_dir))
-
